@@ -2,6 +2,7 @@ var stream = require('readable-stream')
 var inherits = require('inherits')
 var varint = require('varint')
 var sodium = require('sodium-universal')
+var rnRandomBytes = require('react-native-randombytes');
 var indexOf = require('sorted-indexof')
 var feed = require('./feed')
 var messages = require('./messages')
@@ -500,7 +501,6 @@ function discoveryKey (key) {
 }
 
 function randomBytes (n) {
-  var buf = bufferAlloc(n)
-  sodium.randombytes_buf(buf)
+  var buf = rnRandomBytes.randomBytes(n)
   return buf
 }
